@@ -1,0 +1,97 @@
+@import "./_root.css";
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 300px;
+    max-width: 300px;
+
+    & form {
+        width: 100%;
+    }
+
+    & .login-action {
+        width: 100%;
+
+        & button {
+            width: 100%;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        border: 1px solid var(--el-border-color);
+        border-radius: var(--el-border-radius-base);
+        padding: 18px 18px;
+    }
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: var(--el-color-primary-dark-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 10px;
+    position: sticky;
+    top: 0;
+
+    & .header-left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+
+        & button {
+            height: 32px;
+        }
+
+        & h1 {
+            line-height: 1;
+            color: var(--el-color-primary-light-9);
+        }
+
+        & i {
+            font-size: 32px;
+            color: var(--el-color-primary-light-9);
+        }
+    }
+
+    & .header-right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+
+        & .avatar {
+            border-radius: 100%;
+            background-color: var(--el-text-color-disabled);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        & i {
+            font-size: 24px;
+            color: var(--el-bg-color);
+        }
+    }
+}
+
+.el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label-wrap>.el-form-item__label:after, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label:after {
+    color: var(--el-color-danger);
+    content: "*";
+    margin-left: 4px;
+}
+
+.el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label:before {
+    color: var(--el-color-danger);
+    content: "" !important;
+    margin-left: unset !important;
+}

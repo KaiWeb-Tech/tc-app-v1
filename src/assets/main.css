@@ -1,0 +1,39 @@
+@import "./_root.css";
+@import "./_component.css";
+@import "tailwindcss";
+
+/*
+Breakpoints :
+- 576
+- 768
+- 992
+- 1200
+- 1400
+*/
+
+/*noinspection CssInvalidAtRule*/
+h1 {
+    font-size: var(--el-font-size-extra-large);
+    /*line-height: var(--el-font-line-height-primary);*/
+}
+
+h2 {
+    font-size: var(--el-font-size-extra-large);
+    color: var(--el-color-primary-dark-2);
+}
+
+body, #app {
+    height: 100vh;
+    background-color: var(--el-bg-color);
+}
+
+button {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    transition: background-color .3s ease, border-color .3s ease;
+}

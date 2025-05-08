@@ -1,0 +1,34 @@
+{
+  "message": "Bonjour le monde",
+  "page-titles": {
+    "profile": "Profil",
+    "cards": "Cartes",
+    "categories": "Catégories",
+    "translator": "Traducteur",
+    "login": "Connexion"
+  },
+  "labels": {
+    "login": "Se connecter",
+    "email": "Email",
+    "password": "Mot de passe",
+    "nickname": "Pseudo",
+    "confirm": "Confirmation mot de passe",
+    "locale": "Langue",
+    "save": "Enregistrer",
+    "back": "Retour",
+    "cancel": "Annuler"
+  },
+  "placeholders": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirm-password": "Confirmation du mot de passe",
+    "fake": "password"
+  },
+  "page-subtitles": {
+    "profile": "Gérez votre profil"
+  },
+  "locales": {
+    "fr": "FR",
+    "en": "EN"
+  }
+}
