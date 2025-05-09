@@ -169,18 +169,6 @@ onMounted(async () => {
             :rules="formRules.email">
           <el-input size="large" v-model="dynamicValidateForm.email"/>
         </el-form-item>
-        <!--        <el-form-item-->
-        <!--            :label="t('labels.password')"-->
-        <!--            prop="password"-->
-        <!--            :rules="formRules.password">-->
-        <!--          <el-input type="password" size="large" v-model="dynamicValidateForm.password"/>-->
-        <!--        </el-form-item>-->
-        <!--        <el-form-item-->
-        <!--            :label="t('labels.confirm')"-->
-        <!--            prop="confirm"-->
-        <!--            :rules="formRules.confirm">-->
-        <!--          <el-input type="password" size="large" v-model="dynamicValidateForm.confirm"/>-->
-        <!--        </el-form-item>-->
         <el-form-item :label="t('labels.locale')" prop="locale">
           <el-select
               v-model="dynamicValidateForm.locale"

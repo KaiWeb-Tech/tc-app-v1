@@ -2,6 +2,7 @@
 import { RouterLink, RouterView, useRouter } from 'vue-router';
 import Header from '@/components/Header.vue';
 import { onMounted, ref, watch } from 'vue';
+import SideMenu from "@/components/SideMenu.vue";
 
 const router = useRouter();
 const showHeader = ref(false);
@@ -26,6 +27,7 @@ watch(
 
 <template>
   <Header v-if="showHeader" />
+  <SideMenu />
   <RouterView />
 </template>
 

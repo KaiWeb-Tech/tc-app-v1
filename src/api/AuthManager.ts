@@ -35,7 +35,7 @@ export class AuthManager {
                 return res;
             } else {
                 console.error('Login failed:', response.statusText);
-                return;
+                return response.status;
             }
         } catch (error) {
             console.error('Error during login:', error);

@@ -12,8 +12,8 @@ export interface User {
 }
 
 export const UserRepository = {
-    login: async function(user: User): Promise<void> {
-        await AuthManager.login(user);
+    login: async function(user: User): Promise<any> {
+        return await AuthManager.login(user);
     },
 
     getProfile: async function (): Promise<User | undefined> {

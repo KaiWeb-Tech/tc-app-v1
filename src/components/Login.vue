@@ -5,6 +5,7 @@ import {type User, UserRepository} from "@/models/User.ts";
 import {useRouter} from "vue-router";
 import {useI18n} from "vue-i18n";
 
+const showAlert = ref<boolean>(false)
 const { t } = useI18n();
 const router = useRouter()
 const formRef = ref<FormInstance>()
@@ -29,8 +30,15 @@ const submitForm = (formEl: FormInstance | undefined) => {
         email: dynamicValidateForm.email,
         password: dynamicValidateForm.password
       } as User
-      await UserRepository.login(formValidated)
-      await router.push('categories')
+      UserRepository.login(formValidated).then(async (res) => {
+        if (res.user) {
+          console.log('ok')
+          await router.push('categories')
+        } else {
+          console.log(res)
+          showAlert.value = true
+        }
+      })
     } else {
       console.log('error submit!')
     }
@@ -106,8 +114,13 @@ const resetForm = (formEl: FormInstance | undefined) => {
       </div>
     </el-form>
   </div>
+  <el-alert v-show="showAlert" class="alert" title="Wrong password or email" type="error" show-icon :closable="false" />
 </template>
 
 <style scoped>
-
+.alert {
+  position: absolute;
+  top: 10px;
+  width: fit-content;
+}
 </style>
