@@ -3,8 +3,9 @@
   "page-titles": {
     "profile": "Profil",
     "cards": "Cartes",
-    "categories": "Catégories",
+    "categories": "Tableau de bord",
     "translator": "Traducteur",
+    "training": "Entrainement",
     "login": "Connexion"
   },
   "labels": {

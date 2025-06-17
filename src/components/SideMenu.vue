@@ -12,25 +12,25 @@ import LanguageOutline from "@/components/icons/LanguageOutline.vue";
         style="height: 100%; background-color: var(--el-color-primary-light-9)"
         router
     >
-      <el-menu-item index="1">
+      <el-menu-item index="categories">
         <el-icon>
           <House />
         </el-icon>
         <span>Dashboard</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="profile">
         <el-icon>
           <Document/>
         </el-icon>
         <span>Profile</span>
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="training">
         <el-icon>
           <Setting/>
         </el-icon>
         <span>Training</span>
       </el-menu-item>
-      <el-menu-item index="4">
+      <el-menu-item index="translator">
         <el-icon>
           <LanguageOutline />
         </el-icon>

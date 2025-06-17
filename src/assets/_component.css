@@ -1,14 +1,24 @@
 @import "./_root.css";
 
 
-main {
-    margin-left: 0;
-    transition: margin-left .3s ease;
-    @media screen and (min-width: 768px) {
-        margin-left: 200px;
+#app {
+    & main {
+        margin-left: 0;
+        transition: margin-left .3s ease;
+    }
+
+    &:has(.side-menu) {
+        & main {
+            @media screen and (min-width: 768px) {
+                margin-left: 200px;
+            }
+        }
     }
 }
 
+.circular {
+    width: 30px !important;
+}
 
 .page {
     display: flex;
@@ -16,6 +26,14 @@ main {
     gap: 16px;
     height: calc(100vh - 120px);
     position: relative;
+
+    &:is(.profile) {
+        max-width: 500px;
+
+        @media screen and (max-width: 768px) {
+            max-width: unset;
+        }
+    }
 
 
     & .page-header {
@@ -37,10 +55,8 @@ main {
     justify-content: flex-end;
     height: 60px;
     padding: 0 10px;
-
-
+    border-top: 1px solid var(--el-menu-border-color);
 }
-
 
 .side-menu {
     width: 200px;
@@ -63,8 +79,21 @@ main {
 
 
     @media screen and (max-width: 576px) {
-        width: 100%;
+        /*width: 100%;*/
     }
+}
+
+#shadow-screen {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    z-index: 90;
+    backdrop-filter: blur(1px) brightness(90%);
+    transition: opacity .3s ease-in-out;
 }
 
 
@@ -172,14 +201,20 @@ main {
 }
 
 
-.el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label-wrap>.el-form-item__label:after, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label:after {
+.el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label-wrap > .el-form-item__label:after, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label:after {
     color: var(--el-color-danger);
     content: "*";
     margin-left: 4px;
 }
 
+.el-menu-item {
+    & span, & svg, & i {
+        pointer-events: none;
+    }
+}
 
-.el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label-wrap>.el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left>.el-form-item__label:before {
+
+.el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label-wrap > .el-form-item__label:before, .el-form-item.is-required:not(.is-no-asterisk).asterisk-left > .el-form-item__label:before {
     color: var(--el-color-danger);
     content: "" !important;
     margin-left: unset !important;

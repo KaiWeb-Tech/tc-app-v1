@@ -3,7 +3,7 @@ import {useEventPageTitleStore} from "@/stores/pageTitle";
 import {ref, watch} from "vue";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import {Menu, Avatar} from '@element-plus/icons-vue'
-import {toggleSideMenu} from "@/components/utils/utils.ts";
+import {toggleSideMenu} from "@/utils/common.ts";
 
 
 const eventPageTitleStore = useEventPageTitleStore();
