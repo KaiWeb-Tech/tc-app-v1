@@ -39,3 +39,8 @@ function showShadowScreen(shadowScreen: HTMLElement): void {
         shadowScreen.style.opacity = "1"
     }, 150)
 }
+
+export default function logout() {
+    localStorage.removeItem('tc_token');
+    window.location.href = '/login';
+}

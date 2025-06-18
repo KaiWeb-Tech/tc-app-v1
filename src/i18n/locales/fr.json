@@ -26,7 +26,10 @@
     "fake": "password"
   },
   "page-subtitles": {
-    "profile": "Gérez votre profil"
+    "profile": "Gérez votre profil",
+    "dashboard": "Liste des catégories",
+    "translator": "Vérifiez vos traductions",
+    "training": "Entrainement"
   },
   "locales": {
     "fr": "FR",

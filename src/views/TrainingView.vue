@@ -2,6 +2,7 @@
 import {useI18n} from "vue-i18n";
 import {useEventPageTitleStore} from "@/stores/pageTitle.ts";
 import {onMounted} from "vue";
+import Training from "@/components/Training.vue";
 
 const { t } = useI18n();
 const eventPageTitleStore = useEventPageTitleStore();
@@ -14,7 +15,7 @@ onMounted(() => {
 
 <template>
   <main>
-    TrainingView
+    <Training />
   </main>
 </template>
 
