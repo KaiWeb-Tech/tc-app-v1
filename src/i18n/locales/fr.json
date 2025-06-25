@@ -23,7 +23,8 @@
     "email": "Email",
     "password": "Mot de passe",
     "confirm-password": "Confirmation du mot de passe",
-    "fake": "password"
+    "fake": "password",
+    "search": "Recherche"
   },
   "page-subtitles": {
     "profile": "Gérez votre profil",
@@ -31,8 +32,18 @@
     "translator": "Vérifiez vos traductions",
     "training": "Entrainement"
   },
+  "categories-page": {
+    "cards": "Cartes :",
+    "rating": "Notation",
+    "btn": {
+      "add": "Ajouter une catégorie"
+    }
+  },
   "locales": {
     "fr": "FR",
     "en": "EN"
+  },
+  "common": {
+    "emptyState": "Aucun élément"
   }
 }
