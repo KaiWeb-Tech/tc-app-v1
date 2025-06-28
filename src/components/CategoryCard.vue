@@ -3,10 +3,13 @@ import {type Category, CategoryRepository} from "@/models/Category.ts";
 import {Delete} from "@element-plus/icons-vue";
 import {useI18n} from "vue-i18n";
 import {ref} from "vue";
+import {useRouter} from "vue-router";
 
 const {t, locale} = useI18n();
 const isLoading = ref(false)
 const dialogDeleteVisible = ref(false)
+const router = useRouter()
+
 
 defineProps<{
   category: Category;
@@ -30,13 +33,11 @@ function goToDetails(event: Event, category: Category): void {
   const target = event.target as HTMLElement
   if (target.classList.contains('bt-delete')) {
     dialogDeleteVisible.value = true
-    // isLoading.value = true;
-    // setTimeout(() => {
-    //   deleteCategory(category)
-    //   isLoading.value = false;
-    // }, 500)
   } else {
-    console.log('test')
+    router.push({
+      name: 'cards',
+      params: {id: category.id}
+    })
   }
 }
 </script>
@@ -48,7 +49,7 @@ function goToDetails(event: Event, category: Category): void {
       <p v-if="category.description" class="help">{{ category.description }}</p>
     </div>
     <div class="category-card-right">
-<!--      <div>{{ t('categories-page.cards') }} 32</div>-->
+      <!--      <div>{{ t('categories-page.cards') }} 32</div>-->
     </div>
     <div class="category-card-actions">
       <button class="bt-delete">
@@ -60,7 +61,7 @@ function goToDetails(event: Event, category: Category): void {
   </div>
 
   <el-dialog v-model="dialogDeleteVisible" title="Delete category?" style="margin-top: 35vh; width: 250px">
-<!--    TODO: Indiquer le nombre de cards dans la cat-->
+    <!--    TODO: Indiquer le nombre de cards dans la cat-->
     <template #footer>
       <div class="dialog-footer">
         <el-button size="large" @click="dialogDeleteVisible = false">Cancel</el-button>

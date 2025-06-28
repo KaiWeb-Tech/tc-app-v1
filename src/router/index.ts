@@ -39,6 +39,14 @@ const router = createRouter({
       name: 'cards',
       component: CardsView,
       meta: { requiresAuth: true, showHeader: false },
+      children: [
+        {
+          path: ':cardId',
+          name: 'category-card-detail',
+          component: CardsView,
+          // component: () => import('./views/cardsView.vue')
+        }
+      ]
     },
     {
       path: '/translator',
