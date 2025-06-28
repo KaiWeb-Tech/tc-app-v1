@@ -77,16 +77,16 @@ const submitForm = (formEl: FormInstance | undefined) => {
       } as Category
       const categoryAdded = await CategoryRepository.addCategory(newCategory)
       setTimeout(() => {
-        isLoading.value = false;
         categories.value?.push(categoryAdded)
-      },500)
+        isLoading.value = false;
+      }, 500)
+      dialogFormVisible.value = false
+      formEl.resetFields()
     } else {
       console.log('error submit!')
       isLoading.value = false;
     }
   })
-
-  dialogFormVisible.value = false
 }
 
 function categoryDeleted(value: any) {
@@ -112,29 +112,30 @@ onMounted(() => {
           {{ t('categories-page.btn.add') }}
         </el-button>
       </div>
-      <div class="cards-collection">
-        <div class="empty-area" v-show="searchQuery()?.length === 0">{{ t('common.emptyState') }}</div>
-        <el-card v-for="category in searchQuery()" shadow="hover">
+      <div v-loading="!categories" class="cards-collection">
+        <div class="empty-area" v-show="searchQuery()?.length === 0 && categories">{{ t('common.emptyState') }}</div>
+        <el-card v-for="category in searchQuery()" shadow="hover" class="h-[96px]">
           <CategoryCard :category="category" @update="categoryDeleted"/>
         </el-card>
       </div>
     </div>
   </section>
 
-  <el-dialog v-model="dialogFormVisible" title="New category" style="min-width: 300px; max-width: 400px; margin-top: 30vh">
+  <el-dialog v-model="dialogFormVisible" title="New category"
+             style="min-width: 300px; max-width: 400px; margin-top: 30vh">
     <el-form
         :model="dynamicValidateForm"
         ref="formRef"
     >
       <el-form-item prop="name" :rules="formRules.name">
-        <el-input v-model="dynamicValidateForm.name" autocomplete="off" placeholder="Name" size="large" />
+        <el-input required="true" v-model="dynamicValidateForm.name" autocomplete="off" placeholder="Name" size="large"/>
       </el-form-item>
       <el-form-item prop="description" :rules="formRules.description">
         <el-input v-model="dynamicValidateForm.description" autocomplete="off" placeholder="Description" size="large"/>
       </el-form-item>
       <el-form-item label="Color" prop="color" :rules="formRules.color">
         <div class="demo-color-block">
-          <el-color-picker v-model="dynamicValidateForm.color" />
+          <el-color-picker v-model="dynamicValidateForm.color"/>
         </div>
       </el-form-item>
     </el-form>

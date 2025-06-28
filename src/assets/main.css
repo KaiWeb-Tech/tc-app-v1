@@ -12,6 +12,10 @@ Breakpoints :
 */
 
 /*noinspection CssInvalidAtRule*/
+path, svg, i {
+    pointer-events: none;
+}
+
 h1 {
     font-size: var(--el-font-size-extra-large);
     /*line-height: var(--el-font-line-height-primary);*/

@@ -155,6 +155,7 @@ onMounted(async () => {
     </div>
     <div class="page-content">
       <el-form
+          v-loading="!profile"
           ref="formRef"
           :model="dynamicValidateForm"
           label-width="auto"

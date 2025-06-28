@@ -2,8 +2,11 @@
 import {type Category, CategoryRepository} from "@/models/Category.ts";
 import {Delete} from "@element-plus/icons-vue";
 import {useI18n} from "vue-i18n";
+import {ref} from "vue";
 
 const {t, locale} = useI18n();
+const isLoading = ref(false)
+const dialogDeleteVisible = ref(false)
 
 defineProps<{
   category: Category;
@@ -14,27 +17,59 @@ const emit = defineEmits<{
 }>()
 
 async function deleteCategory(category: Category) {
-  await CategoryRepository.deleteCategory(category)
-  emit('update', category)
+  dialogDeleteVisible.value = false
+  isLoading.value = true
+  setTimeout(() => {
+    CategoryRepository.deleteCategory(category)
+    emit('update', category)
+    isLoading.value = false
+  }, 500)
+}
+
+function goToDetails(event: Event, category: Category): void {
+  const target = event.target as HTMLElement
+  if (target.classList.contains('bt-delete')) {
+    dialogDeleteVisible.value = true
+    // isLoading.value = true;
+    // setTimeout(() => {
+    //   deleteCategory(category)
+    //   isLoading.value = false;
+    // }, 500)
+  } else {
+    console.log('test')
+  }
 }
 </script>
 
 <template>
-  <div class="category-card-content">
+  <div v-loading="isLoading" class="category-card-content" @click="goToDetails($event, category)">
     <div class="category-card-left">
       <h4>{{ category.name }}</h4>
-      <div>{{ t('categories-page.cards') }} 32</div>
+      <p v-if="category.description" class="help">{{ category.description }}</p>
     </div>
     <div class="category-card-right">
+<!--      <div>{{ t('categories-page.cards') }} 32</div>-->
     </div>
     <div class="category-card-actions">
-      <button class="bt-delete" @click="deleteCategory(category)">
+      <button class="bt-delete">
         <el-icon color="var(--el-color-danger)">
           <Delete/>
         </el-icon>
       </button>
     </div>
   </div>
+
+  <el-dialog v-model="dialogDeleteVisible" title="Delete category?" style="margin-top: 35vh; width: 250px">
+<!--    TODO: Indiquer le nombre de cards dans la cat-->
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button size="large" @click="dialogDeleteVisible = false">Cancel</el-button>
+        <el-button size="large" type="danger" @click="deleteCategory(category)">
+          Confirm
+        </el-button>
+      </div>
+    </template>
+  </el-dialog>
 </template>
 
 <style scoped>
