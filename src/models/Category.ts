@@ -13,6 +13,10 @@ export const CategoryRepository = {
         return list.data
     },
 
+    update: async function(id: string, data: Partial<Category>): Promise<any> {
+        return await CategoryManager.update(id, data)
+    },
+
     getById: async function(id: string): Promise<any> {
         return await CategoryManager.getById(id)
     },

@@ -5,6 +5,7 @@ export interface Card {
     front_side: string;
     back_side: string;
     description: string;
+    rating: number
 }
 
 export const CardRepository = {

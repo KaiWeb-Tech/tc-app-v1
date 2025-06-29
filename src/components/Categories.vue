@@ -70,9 +70,9 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       isLoading.value = true;
       const newCategory = {
-        name: dynamicValidateForm.name,
-        description: dynamicValidateForm.description,
-        color: dynamicValidateForm.color,
+        name: dynamicValidateForm.name.trim(),
+        description: dynamicValidateForm.description.trim(),
+        color: dynamicValidateForm.color.trim(),
       } as Category
       const categoryAdded = await CategoryRepository.addCategory(newCategory)
       setTimeout(() => {

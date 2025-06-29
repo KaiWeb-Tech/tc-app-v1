@@ -31,7 +31,7 @@ export class CategoryManager {
         }
     }
 
-    public static async getById(id: string) {
+    public static async getById(id: string): Promise<Category | undefined> {
         try {
             const response = await fetch(`${EndPoints.CATEGORIES}/${id}`, {
                 method: 'GET',
@@ -47,6 +47,27 @@ export class CategoryManager {
             }
         } catch (error) {
             console.error('Error during retrieve category', error);
+            return
+        }
+    }
+
+    public static async update(id: string, data: Partial<Category>): Promise<Category | undefined> {
+        try {
+            const response = await fetch(`${EndPoints.CATEGORIES}/${id}`, {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${this.getToken()}`,},
+                credentials: 'include',
+                body: JSON.stringify(data),
+            })
+
+            if (response.ok) {
+                return await response.json();
+            } else {
+                console.error('Failed:', response.statusText);
+                return
+            }
+        } catch (error) {
+            console.error('Error during update category', error);
             return
         }
     }

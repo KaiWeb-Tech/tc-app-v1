@@ -193,7 +193,7 @@ onMounted(async () => {
     </div>
   </section>
   <div class="page-action">
-    <el-button size="large" type="default" @click="router.back()">{{ $t('labels.back') }}</el-button>
+    <el-button size="large" type="default" @click="router.back()">{{ t('labels.back') }}</el-button>
     <el-button v-loading="isLoading" size="large" type="primary" @click="submitForm(formRef)">{{ $t('labels.save') }}</el-button>
   </div>
 </template>

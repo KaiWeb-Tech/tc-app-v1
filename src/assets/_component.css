@@ -67,7 +67,16 @@
 
 
     & .page-header {
-        padding: 16px 10px
+        padding: 16px 10px;
+        display: flex;
+        align-items: center;
+        gap: var(--space-lg);
+
+        & button {
+            display: flex;
+            align-items: baseline;
+            color: var(--el-color-primary-dark-2);
+        }
     }
 
 
@@ -108,7 +117,7 @@
 
 .btn-delete {
     & .el-icon svg > path {
-        fill: var(--el-color-danger) ;
+        fill: var(--el-color-danger);
     }
 }
 

@@ -4,7 +4,7 @@ import LanguageOutline from "@/components/icons/LanguageOutline.vue";
 import {type RouteLocationNormalizedLoaded, useRoute, useRouter} from "vue-router";
 import {logout} from "@/utils/common.ts";
 import {type Category, CategoryRepository} from "@/models/Category.ts";
-import {computed, onMounted, ref} from "vue";
+import {computed, onMounted, ref, watchEffect} from "vue";
 import {useI18n} from "vue-i18n";
 import {useCategoryStore} from "@/stores/categoryStore.ts"
 
@@ -24,6 +24,17 @@ const activeMenuIndex = computed(() => {
 function changeCategory(category: Category) {
   categoryStore.setCategory(category)
 }
+
+watchEffect(() => {
+  if (categories.value) {
+    const index = categories.value.findIndex(c => c.id === categoryStore.category.id)
+
+    if (index !== -1) {
+      categories.value.splice(index, 1)
+      categories.value.splice(index, 0, { ...categoryStore.category })
+    }
+  }
+})
 
 onMounted(async () => {
   categories.value = await CategoryRepository.getAll()
