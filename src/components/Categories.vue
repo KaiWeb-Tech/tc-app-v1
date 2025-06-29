@@ -5,7 +5,6 @@ import {type Category, CategoryRepository} from "@/models/Category.ts";
 import CategoryCard from "@/components/CategoryCard.vue";
 import {Plus, Search} from "@element-plus/icons-vue";
 import type {FormInstance, FormRules} from "element-plus";
-import {type User, UserRepository} from "@/models/User.ts";
 
 const {t, locale} = useI18n();
 
@@ -91,7 +90,6 @@ const submitForm = (formEl: FormInstance | undefined) => {
 
 function categoryDeleted(value: any) {
   categories.value?.splice(categories.value?.indexOf(value), 1)
-  //TODO: Modale de confirmation
 }
 
 onMounted(() => {

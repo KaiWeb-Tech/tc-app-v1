@@ -2,6 +2,7 @@
 import {useEventPageTitleStore} from "@/stores/pageTitle";
 import {onMounted} from "vue";
 import {useI18n} from "vue-i18n";
+import Cards from "@/components/Cards.vue";
 
 const { t } = useI18n();
 const eventPageTitleStore = useEventPageTitleStore();
@@ -14,7 +15,7 @@ onMounted(() => {
 
 <template>
   <main>
-    CardsView
+    <Cards />
   </main>
 </template>
 

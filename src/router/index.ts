@@ -44,7 +44,6 @@ const router = createRouter({
           path: ':cardId',
           name: 'category-card-detail',
           component: CardsView,
-          // component: () => import('./views/cardsView.vue')
         }
       ]
     },

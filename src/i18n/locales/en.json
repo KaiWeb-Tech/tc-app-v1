@@ -39,6 +39,18 @@
       "add": "New category"
     }
   },
+  "cards-page": {
+    "btn": {
+      "add": "New card"
+    }
+  },
+  "side-menu": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "training": "Training",
+    "translator": "Translator",
+    "categories": "Categories"
+  },
   "locales": {
     "fr": "FR",
     "en": "EN"

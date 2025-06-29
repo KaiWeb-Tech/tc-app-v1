@@ -39,6 +39,18 @@
       "add": "Ajouter une catégorie"
     }
   },
+  "cards-page": {
+    "btn": {
+      "add": "Ajouter une carte"
+    }
+  },
+  "side-menu": {
+    "dashboard": "Tableau de bord",
+    "profile": "Profil",
+    "training": "Entrainement",
+    "translator": "Traducteur",
+    "categories": "Catégories"
+  },
   "locales": {
     "fr": "FR",
     "en": "EN"

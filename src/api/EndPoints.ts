@@ -4,4 +4,5 @@ export enum EndPoints {
     REGISTER = '/api/v1/auth/register',
     CHECK = '/api/v1/check',
     CATEGORIES = '/api/v1/categories',
+    CARDS = '/api/v1/categories/{categoryId}/cards',
 }

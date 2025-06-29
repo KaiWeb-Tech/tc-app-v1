@@ -40,7 +40,13 @@ function showShadowScreen(shadowScreen: HTMLElement): void {
     }, 150)
 }
 
-export default function logout() {
+export function logout() {
     localStorage.removeItem('tc_token');
     window.location.href = '/login';
+}
+
+export function buildDynamicUrl(url: string, params = {}) {
+    return Object.entries(params).reduce((acc, [key, value]) => {
+        return acc.replace(new RegExp(`{${key}}`, 'g'), <string>value);
+    }, url);
 }

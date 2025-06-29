@@ -4,11 +4,13 @@ import {Delete} from "@element-plus/icons-vue";
 import {useI18n} from "vue-i18n";
 import {ref} from "vue";
 import {useRouter} from "vue-router";
+import {useCategoryStore} from "@/stores/categoryStore.ts"
 
 const {t, locale} = useI18n();
 const isLoading = ref(false)
 const dialogDeleteVisible = ref(false)
 const router = useRouter()
+const categoryStore = useCategoryStore()
 
 
 defineProps<{
@@ -38,6 +40,7 @@ function goToDetails(event: Event, category: Category): void {
       name: 'cards',
       params: {id: category.id}
     })
+    categoryStore.setCategory(category)
   }
 }
 </script>

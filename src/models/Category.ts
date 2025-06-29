@@ -13,6 +13,10 @@ export const CategoryRepository = {
         return list.data
     },
 
+    getById: async function(id: string): Promise<any> {
+        return await CategoryManager.getById(id)
+    },
+
     addCategory: async function(category: Category): Promise<any> {
         return await CategoryManager.addCategory(category);
     },
